@@ -1,0 +1,13 @@
+flask==3.0.0
+flask-cors==4.0.0
+werkzeug==3.0.1
+pandas
+pypdf2
+python-docx
+ollama
+python-dotenv
+numpy
+pymupdf
+pydantic
+annotated-types
+typing-extensions
