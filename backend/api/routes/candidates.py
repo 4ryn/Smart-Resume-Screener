@@ -22,9 +22,9 @@ def clear_candidate_related_data():
     cursor.execute("DELETE FROM shortlisted_candidates")
     conn.commit()
     conn.close()
-    print("✅ All candidate-related data cleared.")
+    print("All candidate-related data cleared.")
 
-UPLOAD_FOLDER = 'data/uploaded_cvs'  # New folder for uploaded CVs
+UPLOAD_FOLDER = 'data/uploaded_cvs' 
 ALLOWED_EXTENSIONS = {'pdf', 'docx'}
 
 def allowed_file(filename):

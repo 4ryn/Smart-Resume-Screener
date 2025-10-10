@@ -14,7 +14,7 @@ def get_all_jobs():
     cursor.execute("SELECT * FROM jobs ORDER BY id DESC")
     jobs = [dict(row) for row in cursor.fetchall()]
     conn.close()
-    print(f"📊 Database query returned {len(jobs)} jobs")
+    print(f" Database query returned {len(jobs)} jobs")
     return jobs
 
 def get_all_candidates():
@@ -24,7 +24,7 @@ def get_all_candidates():
     cursor.execute("SELECT * FROM candidates ORDER BY id DESC")
     candidates = [dict(row) for row in cursor.fetchall()]
     conn.close()
-    print(f"📊 Database query returned {len(candidates)} candidates")
+    print(f" Database query returned {len(candidates)} candidates")
     return candidates
 
 def get_matched_candidates():
@@ -71,7 +71,7 @@ def get_dashboard_stats():
     cursor.execute("SELECT COUNT(*) as count FROM candidates")
     total_candidates = cursor.fetchone()['count']
     
-    print(f"📊 Dashboard stats - Jobs: {total_jobs}, Candidates: {total_candidates}")
+    print(f" Dashboard stats - Jobs: {total_jobs}, Candidates: {total_candidates}")
     
     # Total shortlisted
     cursor.execute("SELECT COUNT(*) as count FROM shortlisted_candidates")

@@ -13,13 +13,13 @@ const DebugPanel = () => {
       // Test health endpoint
       const response = await fetch('/api/health');
       if (response.ok) {
-        setBackendStatus('✅ Connected');
+        setBackendStatus(' Connected');
         testAllEndpoints();
       } else {
-        setBackendStatus('❌ Backend responding but unhealthy');
+        setBackendStatus(' Backend responding but unhealthy');
       }
     } catch (error) {
-      setBackendStatus('❌ Cannot connect to backend');
+      setBackendStatus(' Cannot connect to backend');
       console.error('Backend connection error:', error);
     }
   };

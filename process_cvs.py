@@ -43,11 +43,11 @@ def process_cvs():
     cursor = conn.cursor()
 
     # Clear existing candidates data for fresh processing
-    print("🗑️  Clearing existing candidate data...")
+    print("  Clearing existing candidate data...")
     cursor.execute("DELETE FROM candidates")
     cursor.execute("DELETE FROM shortlisted_candidates")
     conn.commit()
-    print("✅ Existing candidate data cleared.")
+    print(" Existing candidate data cleared.")
 
     # Ensure email column exists
     cursor.execute("PRAGMA table_info(candidates)")
@@ -89,10 +89,10 @@ def process_cvs():
                 "INSERT INTO candidates (name, email, cv_text) VALUES (?, ?, ?)",
                 (candidate_name, email, text)
             )
-            print(f"✅ Inserted: {candidate_name} ({email})")
+            print(f" Inserted: {candidate_name} ({email})")
 
         except Exception as e:
-            print(f"❌ Error inserting candidate '{candidate_name}': {e}")
+            print(f" Error inserting candidate '{candidate_name}': {e}")
             continue
 
     conn.commit()
@@ -111,20 +111,20 @@ def process_cvs_from_folder(cv_folder):
     cursor = conn.cursor()
 
     # Clear existing candidates data for fresh processing
-    print("🗑️  Clearing existing candidate data...")
+    print("  Clearing existing candidate data...")
     cursor.execute("DELETE FROM candidates")
     cursor.execute("DELETE FROM shortlisted_candidates")
     conn.commit()
-    print("✅ Existing candidate data cleared.")
+    print(" Existing candidate data cleared.")
 
     files = [f for f in os.listdir(cv_folder) if f.lower().endswith(('.pdf', '.docx'))]
-    print(f"📂 Found {len(files)} CV files to process")
+    print(f" Found {len(files)} CV files to process")
 
     for filename in files:
         file_path = os.path.join(cv_folder, filename)
         candidate_name = get_candidate_name(filename)
         
-        print(f"📄 Processing: {filename}")
+        print(f" Processing: {filename}")
 
         if filename.lower().endswith('.pdf'):
             text = extract_text_from_pdf(file_path)
@@ -134,7 +134,7 @@ def process_cvs_from_folder(cv_folder):
             continue
 
         if not text.strip():
-            print(f"⚠️  No text extracted from {filename}")
+            print(f"  No text extracted from {filename}")
             continue
 
         email = extract_email(text)
@@ -146,15 +146,15 @@ def process_cvs_from_folder(cv_folder):
                 "INSERT INTO candidates (name, email, cv_text) VALUES (?, ?, ?)",
                 (candidate_name, email, text)
             )
-            print(f"✅ Inserted: {candidate_name} ({email})")
+            print(f" Inserted: {candidate_name} ({email})")
 
         except Exception as e:
-            print(f"❌ Error inserting candidate '{candidate_name}': {e}")
+            print(f" Error inserting candidate '{candidate_name}': {e}")
             continue
 
     conn.commit()
     conn.close()
-    print(f"✅ CV processing complete. Processed {len(files)} files from {cv_folder}")
+    print(f" CV processing complete. Processed {len(files)} files from {cv_folder}")
 
 if __name__ == "__main__":
     process_cvs()

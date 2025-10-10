@@ -25,7 +25,7 @@ def health_check():
     return jsonify({'status': 'healthy', 'message': 'SmartHireX API is running'}), 200
 
 if __name__ == '__main__':
-    print("🚀 Starting SmartHireX API Server...")
-    print("📍 API running at: http://localhost:5000")
-    print("📊 Health check: http://localhost:5000/api/health")
+    print(" Starting SmartHireX API Server...")
+    print("API running at: http://localhost:5000")
+    print("Health check: http://localhost:5000/api/health")
     app.run(debug=True, host='0.0.0.0', port=5000)
