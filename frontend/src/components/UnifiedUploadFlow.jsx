@@ -18,7 +18,7 @@ const UnifiedUploadFlow = ({ onComplete }) => {
     const csvFiles = files.filter(file => file.name.toLowerCase().endsWith('.csv'));
     setJobFiles(csvFiles);
     if (csvFiles.length !== files.length) {
-      setErrors(prev => [...prev, 'Only CSV files are accepted for job descriptions']);
+      setErrors(prev => [...prev, 'Only CSV,PDF,DOC format are accepted for job descriptions']);
     }
   };
 

@@ -54,7 +54,7 @@ const LandingPage = ({ onSelectMode }) => {
           <div className="bg-gray-800/50 rounded-lg p-6 border border-gray-700">
             <Upload className="text-blue-400 mb-4 mx-auto" size={48} />
             <h4 className="font-semibold mb-2">Upload Everything</h4>
-            <p className="text-gray-400 text-sm">Job descriptions (CSV/PDF/DOCX) and candidate resumes (PDF/DOCX) in one place</p>
+            <p className="text-gray-400 text-sm">Job descriptions (CSV) and candidate resumes (PDF/DOCX) in one place</p>
           </div>
           
           <div className="bg-gray-800/50 rounded-lg p-6 border border-gray-700">

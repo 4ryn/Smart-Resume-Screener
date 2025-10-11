@@ -1,6 +1,6 @@
 # SmartHireX: AI-Enhanced Recruitment Platform with Web Dashboard
 
-**SmartHireX** is an AI-powered, agent-based hiring automation platform with a modern web interface. It leverages large language models (Llama3.1) and vector-based similarity scoring to streamline resume parsing, candidate-job matching, and automated interview scheduling. The system features a Flask REST API backend and React dashboard frontend for complete recruitment workflow management.
+**SmartHireX** is an AI-powered, agent-based hiring automation platform with a modern web interface. It leverages large language models (llama3.1:8b) and vector-based similarity scoring to streamline resume parsing, candidate-job matching, and automated interview scheduling. The system features a Flask REST API backend and React dashboard frontend for complete recruitment workflow management.
 
 ##  New Features Added
 
@@ -42,7 +42,7 @@
                     ┌─────────────────┐
                     │ LLM Integration │
                     │                 │
-                    │ • Llama 3.1     │
+                    │ • Llama 3.1:8b  |
                     │ • Embeddings    │
                     │ • Text Gen      │
                     └─────────────────┘
@@ -224,7 +224,7 @@ Provide a comprehensive assessment that helps hiring managers make informed deci
 
 ## Technologies Used
 
-- **LLM**: LLaMA 3.1 via Ollama (`ollama.chat`, `ollama.embeddings`)
+- **LLM**: LLaMA 3.1:8b via Ollama (`ollama.chat`, `ollama.embeddings`)
 - **Database**: SQLite3
 - **Email**: Python `smtplib`
 - **Matching**: Cosine similarity on dense embeddings
@@ -254,7 +254,7 @@ uv pip install -r requirements.txt
 
 # 3. Install and setup Ollama
 # Visit: https://ollama.ai for installation instructions
-ollama pull llama3.1
+ollama pull llama3.1:8b
 
 # 4. Initialize database
 python database_setup.py
@@ -300,7 +300,7 @@ cd frontend && npm run dev
 python database_setup.py
 
 # Step 2: JD SUMMARIZING AGENT
-# → Uses Llama3.1 model to extract required qualifications from job descriptions
+# → Uses llama3.1:8b model to extract required qualifications from job descriptions
 python jd_summarizer.py
 
 # Step 3: JOB LOADER
@@ -339,7 +339,7 @@ load_dotenv()
 DB_PATH = "database/smarthirex.db"
 
 # LLM Configuration
-OLLAMA_MODEL = "llama3.1"
+OLLAMA_MODEL = "llama3.1:8b"
 OLLAMA_BASE_URL = "http://localhost:11434"
 
 # Matching Configuration
@@ -593,10 +593,12 @@ SmartHireX Hiring Team
 
 ```
 SmartHireX/
-├── __pycache__/               # Python cache files
+├── __pycache__/           # Python cache files
+├──backend\api              #backend files
 ├── data/                      # Data storage directory
 │   ├── cvs/                  # Resume files (PDF, DOCX)
-│   └── job_descriptions/     # Job description files
+│   └── job_descriptions/     # Job description file
+├──frontend
 ├── venv/                     # Python virtual environment
 ├── .env                      # Environment variables
 ├── .gitattributes           # Git configuration
@@ -607,9 +609,10 @@ SmartHireX/
 ├── load_jobs.py            # Job loader utility
 ├── match_candidates.py     # Candidate matching agent
 ├── process_cvs.py          # CV processing agent
+├── README.md               # Project documentation
 ├── recruitment.db          # SQLite database file
 ├── shortlist_candidates.py # Candidate shortlisting agent
-└── README.md               # Project documentation
+└──start_backend.py
 ```
 
 ---
@@ -711,7 +714,7 @@ SMTP_PASSWORD=your_app_password
 
 # Optional: Override default settings
 OLLAMA_BASE_URL=http://localhost:11434
-MATCH_THRESHOLD=0.70
+MATCH_THRESHOLD=0.50
 MAX_SHORTLIST_SIZE=10
 ```
 
@@ -848,7 +851,7 @@ pip install -r requirements.txt
 1. Download and install Ollama from [ollama.ai](https://ollama.ai)
 2. Pull the LLaMA 3.1 model:
 ```bash
-ollama pull llama3.1
+ollama pull llama3.1:8b
 ```
 
 ### 1.3 Configure Environment Variables
@@ -1075,4 +1078,4 @@ This project is licensed under the MIT License.
 ---
 
 
-**Built with ❤️ using LLaMA 3.1 and modern AI technologies**
+**Built with ❤️ using LLaMA 3.1:8b and modern AI technologies**

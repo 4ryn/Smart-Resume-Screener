@@ -58,7 +58,7 @@ function App() {
 
       <footer className="bg-gray-800 border-t border-gray-700 mt-12">
         <div className="container mx-auto px-4 py-6 text-center text-gray-400">
-          <p>© 2025 SmartHireX - Team TalentSage | Accenture Gen AI Hackathon</p>
+          <p>© 2025-Smart Resume Screener</p>
         </div>
       </footer>
     </div>

@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 
-OLLAMA_MODEL = "llama3.1"
+OLLAMA_MODEL = "llama3.1:8b"
 load_dotenv()
 
 EMAIL_SENDER = os.getenv("EMAIL_SENDER")
