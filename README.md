@@ -2,7 +2,6 @@
 
 **SmartHireX** is an AI-powered, agent-based hiring automation platform with a modern web interface. It leverages large language models (llama3.1:8b) and vector-based similarity scoring to streamline resume parsing, candidate-job matching, and automated interview scheduling. The system features a Flask REST API backend and React dashboard frontend for complete recruitment workflow management.
 
-##  New Features Added
 
 ### Flask REST API Backend
 - **RESTful API endpoints** for all recruitment operations
