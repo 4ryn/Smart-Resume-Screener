@@ -1,61 +1,70 @@
 import axios from 'axios';
 
-const API_BASE_URL = '/api';
+// ✅ Use your actual backend base URL + /api prefix
+const API_BASE_URL = 'https://smart-resume-screener-9po9-9roh03bsq-aryans-projects-77cc5ed8.vercel.app/api';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
-  headers: {
-    'Content-Type': 'application/json'
-  }
+  headers: { 'Content-Type': 'application/json' },
 });
 
-// Jobs
+// ======================
+// 🧠 JOBS API
+// ======================
 export const uploadJobCSV = (file) => {
   const formData = new FormData();
   formData.append('file', file);
   return api.post('/jobs/upload', formData, {
-    headers: { 'Content-Type': 'multipart/form-data' }
+    headers: { 'Content-Type': 'multipart/form-data' },
   });
 };
 
 export const summarizeJobs = () => api.post('/jobs/summarize');
 export const getJobs = () => api.get('/jobs');
 
-// Candidates
+// ======================
+// 👤 CANDIDATES API
+// ======================
 export const uploadCVs = (files) => {
   const formData = new FormData();
-  files.forEach(file => formData.append('files', file));
+  files.forEach((file) => formData.append('files', file));
   return api.post('/candidates/upload', formData, {
-    headers: { 'Content-Type': 'multipart/form-data' }
+    headers: { 'Content-Type': 'multipart/form-data' },
   });
 };
 
 export const getCandidates = () => api.get('/candidates');
 
-// Matching
+// ======================
+// 🔍 MATCHING API
+// ======================
 export const triggerMatching = () => api.post('/matching/match');
 export const getMatchResults = () => api.get('/matching/results');
 export const triggerShortlisting = () => api.post('/matching/shortlist');
 export const getShortlist = () => api.get('/matching/shortlist');
 export const triggerScheduling = () => api.post('/matching/schedule');
 
-// Dashboard
+// ======================
+// 📊 DASHBOARD API
+// ======================
 export const getDashboardStats = () => api.get('/dashboard/stats');
 
-// Utility
+// ======================
+// 🧹 UTILITY API
+// ======================
 export const clearAllData = () => api.post('/jobs/clear');
 
-// API Service object for unified upload flow
+// ======================
+// 🔗 Unified API Service
+// ======================
 export const apiService = {
-  uploadJobDescriptions: (formData) => {
-    // FormData is already prepared, just send it
-    return api.post('/jobs/upload', formData, {
-      headers: { 'Content-Type': 'multipart/form-data' }
-    });
-  },
+  uploadJobDescriptions: (formData) =>
+    api.post('/jobs/upload', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    }),
   uploadResumes: uploadCVs,
   summarizeJobs: summarizeJobs,
-  triggerMatching: triggerMatching
+  triggerMatching: triggerMatching,
 };
 
 export default api;
