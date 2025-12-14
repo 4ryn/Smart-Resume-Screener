@@ -315,7 +315,7 @@ Return ONLY this JSON structure:
         }
         
     except Exception as e:
-        print(f"    ❌ JD fallback failed: {e}")
+        print(f"     JD fallback failed: {e}")
         return {
             "required_skills": [],
             "preferred_skills": [],
@@ -337,7 +337,7 @@ def get_embedding(text):
                 return embedding
         except Exception as e:
             if attempt == max_retries - 1:
-                print(f"⚠️  Embedding failed: {e}")
+                print(f"  Embedding failed: {e}")
                 return np.zeros(4096)
     return np.zeros(4096)
 

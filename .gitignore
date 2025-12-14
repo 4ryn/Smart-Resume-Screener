@@ -1,9 +1,16 @@
-# Python
+# =========================================
+# SMART RESUME SCREENER - .gitignore
+# For Flask (backend) + React (frontend)
+# =========================================
+
+# ---- Python ----
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
+
+# ---- Python build & packaging ----
 build/
 develop-eggs/
 dist/
@@ -23,34 +30,72 @@ share/python-wheels/
 *.egg
 MANIFEST
 
-# Virtual Environment
+# ---- Virtual Environments ----
 venv/
 env/
 ENV/
 env.bak/
 venv.bak/
+.venv/
 
-# Environment Variables
+# ---- Environment Variables ----
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-# Database
+# ---- Databases ----
+data/
 *.db
 *.sqlite
 *.sqlite3
 recruitment.db
 
-# IDE
+# ---- Logs ----
+*.log
+logs/
+nohup.out
+
+# ---- AI / Model Files ----
+ollama/
+models/
+*.bin
+*.gguf
+*.pt
+*.model
+*.pkl
+
+# ---- Frontend / Node.js ----
+frontend/node_modules/
+frontend/.next/
+frontend/.cache/
+frontend/package-lock.json
+frontend/yarn.lock
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ---- Build outputs ----
+dist/
+build/
+__pypackages__/
+
+# ---- Tests ----
+test_*.py
+*_test.py
+test_*.csv
+test_*.txt
+
+# ---- IDEs ----
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# OS
+# ---- OS files ----
 .DS_Store
 .DS_Store?
 ._*
@@ -59,26 +104,11 @@ recruitment.db
 ehthumbs.db
 Thumbs.db
 
-# Logs
-*.log
-logs/
-
-# Node.js (for frontend)
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Build outputs
-dist/
-build/
-
-# Test files
-test_*.py
-*_test.py
-test_*.csv
-test_*.txt
-
-# Temporary files
+# ---- Temp / Cache ----
 *.tmp
 *.temp
+*.bak
+*.cache
+
+# ---- Misc ----
+*.ipynb_checkpoints
