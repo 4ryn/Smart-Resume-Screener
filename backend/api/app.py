@@ -13,7 +13,14 @@ from backend.api.routes.dashboard import dashboard_bp
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for frontend
+@app.route('/')
+def home():
+    return jsonify({"message": "Smart Resume Screener backend is running successfully!"})
 
+# Example: add another test route
+@app.route('/ping')
+def ping():
+    return jsonify({"status": "ok"})
 # Register blueprints
 app.register_blueprint(jobs_bp, url_prefix='/api/jobs')
 app.register_blueprint(candidates_bp, url_prefix='/api/candidates')
