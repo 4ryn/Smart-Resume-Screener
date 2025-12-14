@@ -12,16 +12,10 @@ from backend.api.routes.matching import matching_bp
 from backend.api.routes.dashboard import dashboard_bp
 
 app = Flask(__name__)
-CORS(app, resources={
-    r"/api/*": {
-        "origins": [
-            "https://smart-resume-screener-zrtq.vercel.app",  # Your frontend URL
-            "http://localhost:5173"  # Allow local dev
-        ],
-        "methods": ["GET", "POST", "OPTIONS"],
-        "allow_headers": ["Content-Type", "Authorization"]
-    }
-})
+CORS(app, resources={r"/*": {"origins": [
+    "https://smart-resume-screener-zrtq.vercel.app",
+    "http://localhost:5173"
+]}}, supports_credentials=True)
 @app.route('/')
 def home():
     return jsonify({"message": "Smart Resume Screener backend is running successfully!"})
