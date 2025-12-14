@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // ✅ Use your actual backend base URL + /api prefix
-const API_BASE_URL = 'https://smart-resume-screener-9po9-7ln25xbmn-aryans-projects-77cc5ed8.vercel.app/';
+const API_BASE_URL = 'https://smart-resume-screener-3dq1vyj02-aryans-projects-77cc5ed8.vercel.app/';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
